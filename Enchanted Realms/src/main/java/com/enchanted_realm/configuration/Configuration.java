@@ -1,4 +1,4 @@
-package com.enchanted_realm.engine;
+package com.enchanted_realm.configuration;
 
 public class Configuration {
 	public static final String NAME = "Enchanted Realm";

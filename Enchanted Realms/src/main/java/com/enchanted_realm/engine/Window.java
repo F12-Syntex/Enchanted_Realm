@@ -6,6 +6,12 @@ import java.awt.event.ComponentListener;
 
 import javax.swing.JFrame;
 
+import com.enchanted_realm.configuration.Configuration;
+
+/**
+ * this class handles the actual window of the game
+ * @author https://github.com/F12-Syntex
+ */
 public class Window implements ComponentListener {
 
 	private JFrame jFrame;
@@ -20,19 +26,27 @@ public class Window implements ComponentListener {
 		this.jFrame.add(engine);
 		this.jFrame.addComponentListener(this);
 		
+		
 	}
 
+	/**
+	 * show the frame to the user
+	 */
 	public void show() {
 		this.jFrame.setVisible(true);
 	}
 	
+	/**
+	 * 
+	 * @return the dimensions of the window
+	 */
 	public Dimension getDimensions() {
-		return DIMENSION;
+		return this.jFrame.getSize();
 	}
 
 	@Override
 	public void componentResized(ComponentEvent e) {
-		//System.out.println("new Dimension(" + this.jFrame.getSize().width + ", " + this.jFrame.getSize().height + ");");
+		//System.out.println("new Dimension(" + this.getDimensions().width + ", " + this.getDimensions().height + ");");
 	}
 
 	@Override

@@ -1,46 +1,49 @@
 package com.enchanted_realm.engine;
 
-public class EnchantedRealm {
+import java.util.logging.Logger;
+
+import com.enchanted_realm.configuration.Configuration;
+
+/**
+ * The singleton class responsible for acting as the global handler in this game.
+ * @author https://github.com/F12-Syntex
+ */
+public final class EnchantedRealm {
 	
-	private Window window;
-	private Engine engine;
+	private final Window window;
+	private final Engine engine;
 	private static final EnchantedRealm instance = new EnchantedRealm();
+	private final Logger logger = Logger.getGlobal();
 	
-	public void init() {
+	private EnchantedRealm() {
 		this.engine = new Engine();
 		this.window = new Window(this.engine);
+		
 	}
 	
 	public void start(){
-		
-		this.init();
-		
+
 		this.window.show();
+		logger.info(Configuration.NAME + " v" + Configuration.VERSION + " has started");
 		
-		
+	}
+	
+	public static void main(String[] args) {
+		EnchantedRealm enchantedRealm = EnchantedRealm.getInstance();
+		enchantedRealm.start();
+	}
+	
+	public static EnchantedRealm getInstance() {
+		return EnchantedRealm.instance;
 	}
 	
 	public Window getWindow() {
 		return window;
 	}
 
-	public void setWindow(Window window) {
-		this.window = window;
-	}
-	public static EnchantedRealm getInstance() {
-		return EnchantedRealm.instance;
-	}
-	
-	public static void main(String[] args) {
-		EnchantedRealm.getInstance().start();
-	}
-	
 	public Engine getEngine() {
 		return engine;
 	}
 	
-	public void setEngine(Engine engine) {
-		this.engine = engine;
-	}
 
 }
