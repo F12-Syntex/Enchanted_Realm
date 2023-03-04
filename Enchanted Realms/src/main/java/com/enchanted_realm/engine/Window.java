@@ -12,10 +12,10 @@ import com.enchanted_realm.configuration.Configuration;
  * this class handles the actual window of the game
  * @author https://github.com/F12-Syntex
  */
-public class Window implements ComponentListener {
+public class Window implements ComponentListener{
 
 	private JFrame jFrame;
-	private final Dimension DIMENSION = new Dimension(1247, 1036);
+	public static final Dimension DIMENSION = new Dimension(1265, 1036);
 	
 	public Window(Engine engine) {
 		
@@ -24,9 +24,12 @@ public class Window implements ComponentListener {
 		this.jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.jFrame.setLocationRelativeTo(null);
 		this.jFrame.add(engine);
-		this.jFrame.addComponentListener(this);
-		
-		
+		this.jFrame.addWindowListener(engine);
+
+	}
+
+	public JFrame getjFrame() {
+		return jFrame;
 	}
 
 	/**

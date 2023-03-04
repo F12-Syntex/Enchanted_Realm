@@ -1,12 +1,14 @@
 package com.enchanted_realm.controller;
 
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 import javax.swing.event.MouseInputListener;
 
 import com.enchanted_realm.engine.Engine;
 
-public class MouseListener extends GameInput implements MouseInputListener {
+public class MouseListener extends GameInput implements MouseInputListener, MouseWheelListener {
 
 	public MouseListener(Engine engine) {
 		super(engine);
@@ -46,6 +48,11 @@ public class MouseListener extends GameInput implements MouseInputListener {
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		engine.getEntities().forEach(o -> o.mouseMoved(e));
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		engine.getEntities().forEach(o -> o.mouseWheelMoved(e));
 	}
     
 }

@@ -11,6 +11,7 @@ public class Block extends GraphicEntity{
 
 	private final int SIZE = 10;
 	private Set<Point> loc = new HashSet<>();
+	int counter = 1;
 	
 	
 	@Override
@@ -20,13 +21,15 @@ public class Block extends GraphicEntity{
 			g.fillRect(o.x, o.y, SIZE, SIZE);
 		});
 		
+		counter++;
+		
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		super.mouseDragged(e);
-		loc.add(e.getPoint());
+		//loc.add(e.getPoint());
 	}
 	
 	
